@@ -1,11 +1,114 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import ProjectCarousel from "../components/ProjectCarousel";
+import Layout from "../layouts/Layout.astro";
+const projects = [
+  {
+    title: "Tattoo Web",
+    image: "/tattoo-web.png",
+    link: "https://nekobambam.github.io/tattoo-web/",
+    hasScrollEffect: true,
+  },
+  {
+    title: "SapuCraft",
+    image: "/sapuCraft.png",
+    link: "https://lawcito.github.io/minecraft-web/",
+    hasScrollEffect: true,
+  },
+  {
+    title: "Pokemon trucho",
+    image: "/pokemon-trucho.png",
+    link: "https://lawcito.github.io/pokemon-trucho/",
+    hasScrollEffect: false,
+  },
+  {
+    title: "Batalla naval",
+    image: "/batalla-naval.png",
+    link: "https://github.com/Lawcito/batallanaval1.0",
+    hasScrollEffect: false,
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <div
+    class="min-h-screen w-full relative bg-black flex flex-col justify-center items-center"
+  >
+    <!-- FONDO -->
+    <div
+      class="absolute inset-0 z-0"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.25), transparent 70%), #000000",
+      }}
+    >
+    </div>
+    <!-- FONDO END -->
+
+    <!-- NAVBAR -->
+    <nav
+      class="h-14 w-full flex items-center justify-center sticky top-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/10"
+    >
+      <Navbar />
+    </nav>
+    <!-- MAIN -->
+    <main class="relative z-10 text-white flex flex-col">
+      <!-- HERO -->
+      <section
+        class="min-h-screen w-full flex justify-evenly items-center gap-16"
+      >
+        <div class="border flex flex-col gap-14">
+          <span>
+            <p class="text-5xl font-bold">Hola</p>
+            <h1 class="text-5xl font-bold">Soy Lawcito</h1>
+          </span>
+          <p class="max-w-2xl text-center text-gray-300">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+            recusandae, libero veritatis, ad voluptate qui mollitia perspiciatis
+            debitis tempore architecto dolores sequi sunt illo, fugiat cum nobis
+            expedita laudantium nihil?
+          </p>
+          <h2>Web developer</h2>
+        </div>
+        <!-- Imagen de perfil -->
+        <div class="border h-64 w-64">IMAGEN</div>
+      </section>
+
+      <!-- PROJECTS  -->
+      <section
+        class="min-h-screen w-full flex flex-col justify-center items-center"
+      >
+        <h2 class="text-4xl font-semibold mb-4">Proyectos</h2>
+        <ProjectCarousel client:load projects={projects} />
+
+        <!-- TECNOLOGÍAS -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-8"
+        >
+          <h2 class="text-4xl font-semibold mb-4">Tecnologías</h2>
+          <p class="max-w-2xl text-center text-gray-300">
+            Sección tipo cards contenedoras cuadradas, que tengan 4 tecnologías
+            cada una.
+          </p>
+        </section>
+        <!-- ESTUDIOS -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-8"
+        >
+          <h2 class="text-4xl font-semibold mb-4">Estudios</h2>
+          <p class="max-w-2xl text-center text-gray-300">
+            Sección tipo cards contenedoras cuadradas, que tengan 4 tecnologías
+            cada una.
+          </p>
+        </section>
+      </section>
+      <!-- FOOTER -->
+      <footer
+        class="w-full flex items-center justify-center border border-red-700 bottom-0"
+      >
+        <Footer />
+      </footer>
+    </main>
+  </div>
 </Layout>

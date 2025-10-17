@@ -1,0 +1,32 @@
+---
+const links = [
+  {
+    label: "Proyectos",
+    href: "/proyects",
+  },
+  {
+    label: "Tecnologías",
+    href: "/tecnologies",
+  },
+  {
+    label: "Estudios",
+    href: "/studyes",
+  },
+];
+---
+
+<ul class="flex w-full h-full justify-around items-center text-white">
+  <div>IMAGEN PARA IR AL HOME</div>
+  <div class="flex gap-4">
+    {
+      links.map(({ label, href }) => {
+        return (
+          <a href={href}>
+            <li>{label}</li>
+          </a>
+        );
+      })
+    }
+    <span>DESCARGAR CV</span>
+  </div>
+</ul>
