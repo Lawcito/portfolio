@@ -2,31 +2,113 @@
 const links = [
   {
     label: "Proyectos",
-    href: "/proyects",
+    href: "#proyectos",
   },
   {
     label: "Tecnologías",
-    href: "/tecnologies",
+    href: "#tecnologias",
   },
   {
     label: "Estudios",
-    href: "/studyes",
+    href: "#estudios",
   },
 ];
 ---
 
-<ul class="flex w-full h-full justify-around items-center text-white">
-  <div>IMAGEN PARA IR AL HOME</div>
-  <div class="flex gap-4">
-    {
-      links.map(({ label, href }) => {
-        return (
-          <a href={href}>
-            <li>{label}</li>
-          </a>
-        );
-      })
-    }
-    <span>DESCARGAR CV</span>
+<header
+  class="w-full h-16 flex justify-between items-center px-4 text-white lg:justify-around"
+>
+  <a href="/">
+    <img src="/profile.jpeg" alt="" class="h-10 rounded-full" />
+  </a>
+
+  <!-- Desktop Menu -->
+  <nav class="hidden lg:flex gap-4 items-center">
+    {links.map(({ label, href }) => <a href={href}>{label}</a>)}
+    <a href="/cv.pdf" download class="bg-white text-black px-4 py-1 rounded-md"
+      >DESCARGAR CV</a
+    >
+  </nav>
+
+  <!-- Mobile Menu Button -->
+  <div id="hamburger-button" class="lg:hidden cursor-pointer">
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      ><path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16m-7 6h7"></path></svg
+    >
   </div>
-</ul>
+</header>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  class="hidden lg:hidden fixed top-0 left-0 w-full h-screen bg-black/80 backdrop-blur-md z-50"
+>
+  <div class="flex justify-end p-4">
+    <div id="close-button" class="cursor-pointer">
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path></svg
+      >
+    </div>
+  </div>
+  <nav
+    class="flex flex-col items-center justify-center h-full gap-8 text-white text-2xl"
+  >
+    {
+      links.map(({ label, href }) => (
+        <a href={href} class="mobile-link">
+          {label}
+        </a>
+      ))
+    }
+    <a
+      href="/negrete-emir.pdf"
+      download
+      class="bg-white text-black px-4 py-2 rounded-md">DESCARGAR CV</a
+    >
+  </nav>
+</div>
+
+<script>
+  const hamburgerButton = document.getElementById("hamburger-button");
+  const mobileMenu = document.getElementById(
+    "mobile-menu"
+  ) as HTMLElement | null;
+  const closeButton = document.getElementById(
+    "close-button"
+  ) as HTMLElement | null;
+  const mobileLinks = document.querySelectorAll(
+    ".mobile-link"
+  ) as NodeListOf<HTMLAnchorElement>;
+
+  function toggleMenu() {
+    if (mobileMenu) {
+      mobileMenu.classList.toggle("hidden");
+    }
+  }
+
+  if (hamburgerButton) {
+    hamburgerButton.addEventListener("click", toggleMenu);
+  }
+  if (closeButton) {
+    closeButton.addEventListener("click", toggleMenu);
+  }
+  mobileLinks.forEach((link) => link.addEventListener("click", toggleMenu));
+</script>
