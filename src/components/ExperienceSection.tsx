@@ -22,7 +22,7 @@ function ExperienceSection({
       <div className="flex flex-col gap-4">
         {experiences.map((exp, index) => (
           <a href={exp.url} key={index}>
-            <div className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/2 backdrop-blur-sm hover:bg-white/5 hover:border-white/20 transition-all duration-300 group">
+            <div className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/2 backdrop-blur-sm hover:bg-white/5  hover:border-white/20 transition-all duration-300 group">
               {/* Logo */}
               <div className="flex-shrink-0 w-16 h-16 sm:w-14 sm:h-14 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <img
