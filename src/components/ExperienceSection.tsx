@@ -74,7 +74,7 @@ function ExperienceSection({
               </div>
             </div>
 
-            {/* Burbuja flotante - Descripción tipo cómic/manga */}
+            {/* Burbuja flotante */}
             {exp.description && (
               <div
                 className="absolute z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] delay-75
@@ -86,16 +86,11 @@ function ExperienceSection({
                               md:group-hover:translate-x-0 md:group-hover:-translate-y-1/2
                               w-[260px] sm:w-[320px]"
               >
-                {/* Contenedor de la burbuja */}
                 <div className="relative p-5 rounded-2xl border border-purple-500/40 bg-black/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(139,92,246,0.2)] text-sm sm:text-base text-gray-200 leading-relaxed font-medium">
-                  {/* Flecha Desktop (apunta hacia la izquierda) */}
                   <div className="hidden md:block absolute top-1/2 -left-[14px] -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[14px] border-r-purple-500/40"></div>
                   <div className="hidden md:block absolute top-1/2 -left-[12px] -translate-y-1/2 w-0 h-0 border-t-[9px] border-t-transparent border-b-[9px] border-b-transparent border-r-[13px] border-r-black"></div>
-
-                  {/* Flecha Mobile (apunta hacia arriba) */}
                   <div className="md:hidden absolute -top-[14px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[14px] border-b-purple-500/40"></div>
                   <div className="md:hidden absolute -top-[12px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[9px] border-l-transparent border-r-[9px] border-r-transparent border-b-[13px] border-b-black"></div>
-
                   {exp.description}
                 </div>
               </div>
